@@ -30,5 +30,5 @@ Agenda and calculator app built with JS and React
    node script-agenda.js
    ```
 
-This project is licensed under the MIT License - see the (LICENSE)[https://en.wikipedia.org/wiki/MIT_License] wikipedia page for details.
+This project is licensed under the MIT License - see the [LICENSE](https://en.wikipedia.org/wiki/MIT_License) wikipedia page for details.
    
