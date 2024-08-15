@@ -5,10 +5,12 @@ Agenda and calculator app built with JS and React
 ## Features
 
 - **Show Agenda**: Display all contacts currently stored in the agenda.
-- **Search Contact**: Search for contacts by name or phone number.
+- **Search Contact**: Search for contacts either by name or phone number.
 - **Create Contact**: Add a new contact with details such as name, address, phone numbers, and email.
 - **Delete Contact**: Remove contacts either by name or phone number.
-- **Save Contacts**: Store all contacts into a text file for persistent storage.
+- **Delete All Contacts**: Remove all contacts from the agenda.
+- **Save Contacts**: Save all contacts to a text file for persistent storage.
+- **Clear Screen**: Clear the console screen for better readability.
 
 ## Installation and Usage
 
