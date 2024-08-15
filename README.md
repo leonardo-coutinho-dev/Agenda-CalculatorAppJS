@@ -19,6 +19,7 @@ Agenda and calculator app built with JS and React
 ### Getting Started
 
 1. **Clone the repository**:
+   
    ```bash
    git clone https://github.com/yourusername/AgendaAppJS.git
    
