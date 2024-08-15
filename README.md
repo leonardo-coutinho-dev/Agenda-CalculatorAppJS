@@ -33,7 +33,7 @@ Agenda and calculator app built with JS and React
    ```
    
    ```bash
-   node script-agenda.js
+   npm run dev
    ```
  
 
