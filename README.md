@@ -31,4 +31,8 @@ Agenda and calculator app built with JS and React
    ```
 
 This project is licensed under the MIT License - see the [LICENSE](https://en.wikipedia.org/wiki/MIT_License) wikipedia page for details.
+
+##### Inspiration book
+
+[Aprende JavaScript en un fin de semana](https://www.amazon.es/Aprende-JavaScript-en-fin-semana-ebook/dp/B093BC336P)
    
