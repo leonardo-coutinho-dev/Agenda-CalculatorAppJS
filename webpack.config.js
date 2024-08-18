@@ -21,6 +21,10 @@ export default {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.css$/i, // Match .css files
+        use: ["style-loader", "css-loader"], // Use style-loader and css-loader
+      },
     ],
   },
   resolve: {
