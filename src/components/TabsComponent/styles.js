@@ -123,3 +123,69 @@ export const StyledBtnCFile = styled(Button)`
     color: #d3d3d3 !important;
   }
 `;
+
+export const StyledBtnBox = styled(Box)`
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 600px) and (max-width: 991px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 650px;
+  }
+`;
+
+export const StyledCleanFormBtn = styled(Button)`
+  background-color: #ebebeb;
+  border: 2px solid #bbcbcb;
+  border-radius: 0 !important;
+  color: #161a1d;
+  padding: 8px;
+  width: 200px;
+
+  &:hover {
+    background-color: #660708 !important;
+    color: #d3d3d3 !important;
+    font-weight: bold;
+  }
+
+  &[aria-selected="true"] {
+    background-color: #660708 !important;
+    color: #d3d3d3 !important;
+  }
+`;
+
+export const StyledCreateContactBtn = styled(Button)`
+  background-color: #ebebeb;
+  border: 2px solid #bbcbcb;
+  border-radius: 0 !important;
+  color: #161a1d;
+  padding: 8px;
+  width: 200px;
+  margin-top: 8px;
+  &:hover {
+    background-color: #5cdb5c !important;
+    color: #161a1d !important;
+    font-weight: bold;
+  }
+
+  &[aria-selected="true"] {
+    background-color: #161a1d !important;
+    color: #d3d3d3 !important;
+  }
+
+  @media (min-width: 600px) {
+    margin-top: 0;
+  }
+`;

@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 
-import { TabPanel, Image, Input, Box, Text, VStack } from "@chakra-ui/react";
+import {
+  TabPanel,
+  Image,
+  Input,
+  Text,
+  VStack,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from "@chakra-ui/react";
 
 import { AttachmentIcon } from "@chakra-ui/icons";
 
@@ -15,20 +25,107 @@ import {
   StyledParagraph,
   InputWrapper,
   StyledBtnCFile,
+  StyledBtnBox,
+  StyledCleanFormBtn,
+  StyledCreateContactBtn,
 } from "./styles";
 
 import InputComponent from "../Forms/index";
 
+// Person class to represent the contact data
+class Person {
+  constructor(
+    name,
+    surname,
+    dateOfBirth,
+    phoneMobile,
+    phoneLandline,
+    phoneWork,
+    street,
+    number,
+    city,
+    country,
+    postalCode,
+    email,
+    photo
+  ) {
+    this.name = name;
+    this.surname = surname;
+    this.dateOfBirth = dateOfBirth;
+    this.phoneMobile = phoneMobile;
+    this.phoneLandline = phoneLandline;
+    this.phoneWork = phoneWork;
+    this.street = street;
+    this.number = number;
+    this.city = city;
+    this.country = country;
+    this.postalCode = postalCode;
+    this.email = email;
+    this.photo = photo;
+  }
+}
+
 const TabsComponent = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    dateOfBirth: "",
+    phoneMobile: "",
+    phoneLandline: "",
+    phoneWork: "",
+    street: "",
+    number: "",
+    city: "",
+    country: "",
+    postalCode: "",
+    email: "",
+    photo: null, // Added photo to the formData state
+  });
+
+  const [contacts, setContacts] = useState([]);
+
+  const handleInputChange = (name, value) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleAddContacts = (object) => {
+    setContacts((prevFormData) => [...prevFormData, object]);
+  };
+
+  const handleSubmit = () => {
+    const newPerson = new Person(
+      formData.name,
+      formData.surname,
+      formData.dateOfBirth,
+      formData.phoneMobile,
+      formData.phoneLandline,
+      formData.phoneWork,
+      formData.street,
+      formData.number,
+      formData.city,
+      formData.country,
+      formData.postalCode,
+      formData.email,
+      formData.photo // Include photo in the Person object
+    );
+    handleAddContacts(newPerson);
+    console.log(newPerson, contacts);
+  };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-      // You can also prepare the file for uploading to the backend here.
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+      handleInputChange("photo", imageUrl); // Update formData with the image URL
     }
   };
+
   return (
     <Container>
       <StyledTabs>
@@ -38,6 +135,7 @@ const TabsComponent = () => {
           <StyledTab>Calculator</StyledTab>
         </StyledTabList>
         <StyledTabPanels>
+          /** Primeiro painel */
           <StyledTabPanel>
             <ContainerPhoto
               p={2}
@@ -81,33 +179,109 @@ const TabsComponent = () => {
               </VStack>
             </ContainerPhoto>
             <InputWrapper>
-              <InputComponent inp_type={"Name"} />
-              <InputComponent inp_type={"Surname"} />
+              <InputComponent
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                inp_type={"Name"}
+              />
+              <InputComponent
+                value={formData.surname}
+                onChange={(e) => handleInputChange("surname", e.target.value)}
+                inp_type={"Surname"}
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputComponent inp_type={"Date of birth"} />
-              <InputComponent inp_type={"Phone - Mobile"} />
+              <InputComponent
+                value={formData.dateOfBirth}
+                onChange={(e) =>
+                  handleInputChange("dateOfBirth", e.target.value)
+                } // Updated to match formData key
+                inp_type={"Date of birth"}
+              />
+              <InputComponent
+                value={formData.phoneMobile}
+                onChange={(e) =>
+                  handleInputChange("phoneMobile", e.target.value)
+                } // Updated to match formData key
+                inp_type={"Phone - Mobile"}
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputComponent inp_type={"Phone - Landline"} />
-              <InputComponent inp_type={"Phone - Work"} />
+              <InputComponent
+                value={formData.phoneLandline}
+                onChange={(e) =>
+                  handleInputChange("phoneLandline", e.target.value)
+                } // Updated to match formData key
+                inp_type={"Phone - Landline"}
+              />
+              <InputComponent
+                value={formData.phoneWork}
+                onChange={(e) => handleInputChange("phoneWork", e.target.value)} // Updated to match formData key
+                inp_type={"Phone - Work"}
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputComponent inp_type={"Street"} />
-              <InputComponent inp_type={"Number"} />
+              <InputComponent
+                value={formData.street}
+                onChange={(e) => handleInputChange("street", e.target.value)}
+                inp_type={"Street"}
+              />
+              <InputComponent
+                value={formData.number}
+                onChange={(e) => handleInputChange("number", e.target.value)}
+                inp_type={"Number"}
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputComponent inp_type={"City"} />
-              <InputComponent inp_type={"Country"} />
+              <InputComponent
+                value={formData.city}
+                onChange={(e) => handleInputChange("city", e.target.value)}
+                inp_type={"City"}
+              />
+              <InputComponent
+                value={formData.country}
+                onChange={(e) => handleInputChange("country", e.target.value)}
+                inp_type={"Country"}
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputComponent inp_type={"Postal code"} />
-              <InputComponent inp_type={"E-mail"} />
+              <InputComponent
+                value={formData.postalCode}
+                onChange={(e) =>
+                  handleInputChange("postalCode", e.target.value)
+                } // Updated to match formData key
+                inp_type={"Postal code"}
+              />
+              <InputComponent
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)} // Updated to match formData key
+                inp_type={"E-mail"}
+              />
             </InputWrapper>
+            <StyledBtnBox
+              borderWidth={2}
+              borderRadius="sm"
+              boxShadow="lg"
+              mx="auto"
+              mt={0}
+            >
+              <StyledCleanFormBtn>Clear</StyledCleanFormBtn>
+              <StyledCreateContactBtn onClick={handleSubmit}>
+                Add contact
+              </StyledCreateContactBtn>
+            </StyledBtnBox>
           </StyledTabPanel>
+          /** Segundo painel */
           <TabPanel>
-            <StyledParagraph>All contacts(i)</StyledParagraph>
+            <Card>
+              <CardBody>
+                <Text>
+                  View a summary of all your customers over the last month.
+                </Text>
+              </CardBody>
+            </Card>
           </TabPanel>
+          /** Terceiro painel */
           <TabPanel>
             <StyledParagraph>Calculator(i)</StyledParagraph>
           </TabPanel>
