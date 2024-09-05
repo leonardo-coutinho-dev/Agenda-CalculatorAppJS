@@ -1,9 +1,27 @@
 import styled from "styled-components";
 
-import { Tabs, TabList, Tab } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  TabList,
+  Tabs,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "@chakra-ui/react";
+
+export const Container = styled.div`
+  height: auto;
+  width: 100%;
+  padding: 8px;
+  background-color: #d3d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const StyledTabs = styled(Tabs)`
-  height: 100%;
+  height: auto;
   width: 100%;
   background-color: #dad7cd;
   font-weight: bold;
@@ -11,42 +29,163 @@ export const StyledTabs = styled(Tabs)`
 
 export const StyledTabList = styled(TabList)`
   padding: 10px !important;
-  background-color: #588157 !important;
-  border-bottom: 6px solid #a3b18a !important;
+  background-color: #0b090a !important;
+  border-bottom: 8px solid #bbcbcb !important;
   justify-content: flex-end !important;
 `;
 
 export const StyledTab = styled(Tab)`
   font-family: "Nunito Sans", sans-serif !important;
-  color: #dad7cd !important;
-  background-color: #344e41 !important;
+  color: #0b090a !important;
+  background-color: #d3d3d3 !important;
   font-weight: bold;
   border: none !important;
   margin: 0 !important;
   margin-right: 5px !important;
 
   &:hover {
-    color: #344e41 !important;
-    background-color: #dad7cd !important;
+    color: #d3d3d3 !important;
+    background-color: #161a1d !important;
     font-weight: bold;
   }
 
   &[aria-selected="true"] {
-    color: #344e41 !important;
-    background-color: #dad7cd !important;
+    color: #d3d3d3 !important;
+    background-color: #660708 !important;
   }
 `;
 
-export const Container = styled.div`
+export const StyledTabPanels = styled(TabPanels)`
+  height: auto;
+  padding: 2px !important;
+  overflow-y: auto;
+  @media (min-width: 992px) {
+    height: calc(100vh - 84px);
+  }
+`;
+
+export const StyledTabPanel = styled(TabPanel)`
+  padding: 12px !important;
+
+  @media (min-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const InputWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  padding: 6px;
-  background-color: #a3b18a;
+  gap: 8px;
+  margin-bottom: 8px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    gap: 8px;
+    width: 650px;
+  }
 `;
 
 export const StyledParagraph = styled.p`
   font-family: "Nunito Sans", sans-serif !important;
+`;
+
+// choose image for contact component:
+
+export const ContainerPhoto = styled(Box)`
+  width: 100%;
+  @media (min-width: 992px) {
+    width: 650px;
+  }
+`;
+
+export const StyledBtnCFile = styled(Button)`
+  background-color: #ebebeb;
+  border: 2px solid #bbcbcb;
+  color: #7c7c7c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  width: 200px;
+
+  &:hover {
+    background-color: #161a1d !important;
+    color: #d3d3d3 !important;
+    font-weight: bold;
+  }
+
+  &[aria-selected="true"] {
+    background-color: #660708 !important;
+    color: #d3d3d3 !important;
+  }
+`;
+
+export const StyledBtnBox = styled(Box)`
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 600px) and (max-width: 991px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 650px;
+  }
+`;
+
+export const StyledCleanFormBtn = styled(Button)`
+  background-color: #ebebeb;
+  border: 2px solid #bbcbcb;
+  border-radius: 0 !important;
+  color: #161a1d;
+  padding: 8px;
+  width: 200px;
+
+  &:hover {
+    background-color: #660708 !important;
+    color: #d3d3d3 !important;
+    font-weight: bold;
+  }
+
+  &[aria-selected="true"] {
+    background-color: #660708 !important;
+    color: #d3d3d3 !important;
+  }
+`;
+
+export const StyledCreateContactBtn = styled(Button)`
+  background-color: #ebebeb;
+  border: 2px solid #bbcbcb;
+  border-radius: 0 !important;
+  color: #161a1d;
+  padding: 8px;
+  width: 200px;
+  margin-top: 8px;
+  &:hover {
+    background-color: #5cdb5c !important;
+    color: #161a1d !important;
+    font-weight: bold;
+  }
+
+  &[aria-selected="true"] {
+    background-color: #161a1d !important;
+    color: #d3d3d3 !important;
+  }
+
+  @media (min-width: 600px) {
+    margin-top: 0;
+  }
 `;
